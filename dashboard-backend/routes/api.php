@@ -1,19 +1,32 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\UserController;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+Route::group(['middleware' => ['web']], function () {
+    Route::prefix('admin')->controller(UserController::class)->group(function () {
+        Route::middleware('auth:sanctum')->get('/profile', fn() => new UserResource(\Auth::user()->loadMissing(['permissions'])));
+        
+        Route::get('/users', 'index');
+        Route::get('/users/list', 'list');
+        Route::post('/users', 'store');
+        Route::post('/users/{user}', 'update');
+        Route::delete('/users/{user}', 'destroy');
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+        Route::get('/faqs', [FaqController::class, 'index']);
+        Route::get('/faqs/{faq}', [FaqController::class, 'show']);
+        Route::get('/faqs/list', [FaqController::class, 'list']);
+        Route::post('/faqs', [FaqController::class, 'store']);
+        Route::put('/faqs/{faq}', [FaqController::class, 'update']);
+        Route::delete('/faqs/{faq}', [FaqController::class, 'destroy']);
+
+        Route::get('/roles', fn () => ['data' => ['user', 'admin']]);
+        
+    });
+    
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });

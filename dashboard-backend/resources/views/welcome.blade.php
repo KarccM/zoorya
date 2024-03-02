@@ -10,6 +10,6 @@
     <body>
         <div id="app"></div>
         @viteReactRefresh
-        @vite('resources/js/app.jsx')
+        @vite('resources/js/zoorya/main.jsx')
     </body>
 </html>

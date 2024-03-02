@@ -7,4 +7,10 @@ export default defineConfig({
         laravel(['resources/js/app.jsx']),
         react(),
     ],
+    resolve: {
+        alias: {
+            "@": "/resources/js/zoorya/",
+            "#": "/resources/js/zoorya/assets",
+        }
+    }
 });
