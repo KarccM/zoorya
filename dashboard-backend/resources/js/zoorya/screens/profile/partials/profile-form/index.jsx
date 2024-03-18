@@ -211,13 +211,7 @@ export default function ProfileForm() {
           />
           <StyledAvatar className="avatar" src={watch('avatar')?.preview || `${user?.avatarFileUrl}`} />
           {AvatarIsLoading ? (
-            <CircularProgress
-              sx={{
-                position: 'absolute',
-              }}
-              size={'192px'}
-              thickness={2}
-            />
+            <CircularProgress sx={{ position: 'absolute' }} size={'192px'} thickness={2} />
           ) : undefined}
           <Overlay className="overlay">
             <Iconify icon="material-symbols:add-a-photo" width={24} height={24} />

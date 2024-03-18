@@ -2,6 +2,7 @@ import React from "react";
 import Menu from '@/components/menu';
 import { TableCell, TableCellWithOverride } from "../../types/table";
 import config from './config';
+
 export const tableColumns: (TableCell | TableCellWithOverride)[] = [
     {
         header: "titleAr",
@@ -11,16 +12,6 @@ export const tableColumns: (TableCell | TableCellWithOverride)[] = [
     {
         header: "titleEn",
         accessorKey: "titleEn",
-        enableSorting: false,
-    },
-    {
-        header: "descriptionAr",
-        accessorKey: "descriptionAr",
-        enableSorting: false,
-    },
-    {
-        header: "descriptionEn",
-        accessorKey: "descriptionEn",
         enableSorting: false,
     },
     {

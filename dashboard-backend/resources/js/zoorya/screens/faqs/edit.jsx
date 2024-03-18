@@ -1,7 +1,21 @@
 import Form from './partials/form';
-import FormLayout from '@/layouts/FormLayout';
-import config from './config';
+import { Box, Container, Paper } from '@mui/material';
+import Page from '@/components/Page';
+import Breadcrumbs from '@/components/breadcrumbs';
+import usePageMetadata from '@/hooks/usePageMetadata';
 
-export default function Edit() {
-  return <FormLayout form={<Form />} label={config.update.label} />
+export default () => {
+  const { title } = usePageMetadata
+  return (
+    <Page title={title}>
+      <Container maxWidth="80">
+        <Box mb={4}>
+          <Breadcrumbs />
+        </Box>
+        <Paper sx={{ p: 1 }} elevation={3}>
+          <Form />
+        </Paper>
+      </Container>
+    </Page>
+  )
 }

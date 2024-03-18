@@ -5,11 +5,11 @@ import Page from '@/components/Page';
 import { FormattedMessage } from 'react-intl';
 import { getRouteWithLang } from '@/utils/routesHelpers';
 import Breadcrumbs from '@/components/breadcrumbs';
-import usePageTitle from '../hooks/usePageTitle';
+import usePageMetadata from '../hooks/usePageMetadata';
 import Authorize from '@/components/Authorize';
 
 export default function TableLayout({ table, filtersForm = null, config, children, readOnly = false, breadcrumbs = true, showTitle = true, title }) {
-  const { title: PageTitle } = usePageTitle();
+  const { title: PageTitle } = usePageMetadata();
   return <Page title={title}>
     <Container>
       <Stack

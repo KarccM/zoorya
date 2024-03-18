@@ -3,10 +3,10 @@ import Page from '@/components/Page';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Breadcrumbs from '@/components/breadcrumbs';
-import usePageTitle from '@/hooks/usePageTitle';
+import usePageMetadata from '@/hooks/usePageMetadata';
 
 export default function FormLayout({ form, label }) {
-  const { title } = usePageTitle();
+  const { title } = usePageMetadata();
   return (
     <Page title={title}>
       <Container maxWidth="80">

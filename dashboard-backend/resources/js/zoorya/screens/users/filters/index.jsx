@@ -14,13 +14,7 @@ import Iconify from "@/components/Iconify";
 // ----------------------------------------------------------------------
 
 export default function FiltersForm() {
-    const {
-        setQueryParams,
-        removeArrayOfQueryParams,
-        getQueryParams,
-        removeQueryParams,
-    } = useQueryParams();
-
+    const { setQueryParams, removeArrayOfQueryParams, getQueryParams, removeQueryParams } = useQueryParams();
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(!open);

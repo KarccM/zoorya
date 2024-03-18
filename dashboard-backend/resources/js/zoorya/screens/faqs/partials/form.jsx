@@ -14,6 +14,7 @@ import config from '../config';
 import * as Yup from "yup";
 import CustomTextarea from '@/components/form/components/custom-textarea';
 import CustomInput from '@/components/form/components/custom-input';
+import { supportedLanguagesInCapitalCase } from "../../../constants";
 
 export default function Form() {
   const { id } = useParams();
@@ -75,7 +76,7 @@ export default function Form() {
         <ErrorAlert isError={isError} errors={error} />
         <Grid container>
           {
-            ['Ar', 'En'].map((lang) =>
+            supportedLanguagesInCapitalCase.map((lang) =>
               <React.Fragment key={lang}>
                 <Grid item xs={12} sx={{ padding: '10px' }} >
                   <CustomInput label={`title${lang}`} name={`title${lang}`} control={control} errors={errors} />

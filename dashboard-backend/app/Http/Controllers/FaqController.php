@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\FaqResource;
 use App\Models\Faq;
 use Illuminate\Http\Request;
+use App\Http\Resources\FaqResource;
 
 class FaqController extends Controller
 {
@@ -30,7 +30,7 @@ class FaqController extends Controller
 
     public function show(Faq $faq)
     {
-        $this->authorize('Faq.show');
+        $this->authorize('Faq.index');
         return new FaqResource($faq);
     }
 

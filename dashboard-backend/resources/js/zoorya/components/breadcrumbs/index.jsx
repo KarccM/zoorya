@@ -1,8 +1,9 @@
 import React from "react";
-import { styled, Breadcrumbs as muiBreadcrumbs, Box } from "@mui/material";
+import { styled, Breadcrumbs, Box, Stack, Typography } from '@mui/material';
 import { getRouteWithLang } from "../../utils/routesHelpers";
-import { Link, useMatches } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
+import usePageMetadata from '@/hooks/usePageMetadata';
 
 const Dot = styled("span")(() => ({
     height: "0.3rem",
@@ -14,9 +15,8 @@ const Dot = styled("span")(() => ({
     marginLeft: ".3rem",
 }));
 
-const StyledBreadcrumbs = styled(muiBreadcrumbs)(() => ({
+const StyledBreadcrumbs = styled(Breadcrumbs)(() => ({
     fontWeight: "700",
-    marginBottom: "40px",
     color: "white",
     "& .last": {
         fontWeight: "300",
@@ -39,30 +39,28 @@ const StyledBox = styled(Box)(({ theme }) => ({
     },
 }));
 
-const Breadcrumbs = () => {
-    let matches = useMatches();
-    let crumbs = matches
-        .filter((match) => Boolean(match.handle?.crumb))
-        .map((match) => match.handle.crumb(match.data));
+
+export default () => {
+    const { title, crumbs } = usePageMetadata()
+
     return (
-        <StyledBreadcrumbs aria-label="Breadcrumbs " separator={<Dot />}>
-            {crumbs.map((crumb, index) => {
-                return index !== crumbs.length - 1 ? (
-                    <StyledBox
-                        key={index}
-                        component={Link}
-                        to={getRouteWithLang(crumb.props.to)}
-                    >
-                        <FormattedMessage id={crumb.props.children} />
-                    </StyledBox>
-                ) : (
-                    <StyledBox key={index} component={"span"} className="last">
-                        <FormattedMessage id={crumb.props.children} />
-                    </StyledBox>
-                );
-            })}
-        </StyledBreadcrumbs>
+        <Stack>
+            <Typography variant="h4">
+                <FormattedMessage id={title} />
+            </Typography>
+            <StyledBreadcrumbs aria-label="Breadcrumbs " separator={<Dot />}>
+                {crumbs.map((crumb, index) => {
+                    return index !== crumbs.length - 1 ? (
+                        <StyledBox key={index} component={Link} to={getRouteWithLang(crumb.props.to)}>
+                            <FormattedMessage id={crumb.props.children} />
+                        </StyledBox>
+                    ) : (
+                        <StyledBox key={index} component={"span"} className="last">
+                            <FormattedMessage id={crumb.props.children} />
+                        </StyledBox>
+                    );
+                })}
+            </StyledBreadcrumbs>
+        </Stack>
     );
 };
-
-export default Breadcrumbs;

@@ -232,9 +232,9 @@ const useRouter = () => {
                         ],
                     },
                     {
-                        path: "our-services",
+                        path: "services",
                         handle: {
-                            crumb: () => <Link to="/our-services">services</Link>,
+                            crumb: () => <Link to="/services">services</Link>,
                         },
                         children: [
                             {
@@ -265,18 +265,6 @@ const useRouter = () => {
                                 handle: {
                                     crumb: () => (
                                         <Link to="/:id/edit">edit_service</Link>
-                                    ),
-                                },
-                            },
-                            {
-                                path: ":id",
-                                lazy: async () => {
-                                    let service = await import('./screens/services/show')
-                                    return { Component: service.default };
-                                },
-                                handle: {
-                                    crumb: () => (
-                                        <Link to="/:id/edit">show_service</Link>
                                     ),
                                 },
                             },

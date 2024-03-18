@@ -1,20 +1,18 @@
 import React from "react";
-import Menu from "../../components/Menu";
+import Menu from '@/components/menu';
 import { TableCell, TableCellWithOverride } from "../../types/table";
-import config from "./config";
-import SwitchAction from "./partials/switch-action";
+import config from './config';
 
 export const tableColumns: (TableCell | TableCellWithOverride)[] = [
     {
-        header: "title",
-        accessorKey: "title",
+        header: "titleAr",
+        accessorKey: "titleAr",
         enableSorting: false,
     },
     {
-        header: "publish",
-        accessorKey: "publish",
+        header: "titleEn",
+        accessorKey: "titleEn",
         enableSorting: false,
-        cell: ({ row }) => (<SwitchAction original={row.original} value={row.original.published} name="published" />),
     },
     {
         header: "actions",

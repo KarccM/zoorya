@@ -3,11 +3,11 @@ import Iconify from '@/components/Iconify';
 import Page from '@/components/Page';
 import { FormattedMessage } from 'react-intl';
 import Breadcrumbs from '@/components/breadcrumbs';
-import usePageTitle from '../hooks/usePageTitle';
+import usePageMetadata from '../hooks/usePageMetadata';
 import Authorize from '@/components/Authorize';
 
 export default function ModalTableLayout({ table, filtersForm = null, config, openConfirmationModal, children, readOnly = false, breadcrumbs = true, showTitle = true, title = null }) {
-  const { title: PageTitle } = usePageTitle();
+  const { title: PageTitle } = usePageMetadata();
   return <Page title={PageTitle}>
     <Container>
       <Stack

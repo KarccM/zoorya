@@ -23,12 +23,12 @@ const navConfig = [
         icon: getIcon('wpf:faq'),
         roles: 'Faq.view',
     },
-    // {
-    //     title: 'services',
-    //     path: "/services",
-    //     icon: getIcon('material-symbols:home-repair-service-rounded'),
-    //     roles: 'Service.view',
-    // },
+    {
+        title: 'services',
+        path: "/services",
+        icon: getIcon('material-symbols:home-repair-service-rounded'),
+        roles: 'Service.view',
+    },
 ];
 
 export default navConfig;

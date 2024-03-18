@@ -9,9 +9,7 @@ AuthContext.displayName = "AuthContext";
 
 function AuthProvider(props) {
     const [user, setUser] = React.useState(undefined);
-    const { isLoading, isError, isSuccess } = useQuery(['profile'], () => axios({
-        url: 'profile'
-    }).catch(err => console.log('err :>> ', err)), {
+    const { isLoading, isError, isSuccess } = useQuery(['profile'], () => axios({ url: 'profile' }).catch(err => console.log('err :>> ', err)), {
         onSuccess: (userResponse) => setUser(userResponse?.data)
     });
 
