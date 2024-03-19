@@ -143,45 +143,6 @@ const useRouter = () => {
                         ],
                     },
                     {
-                        path: "countries",
-                        handle: {
-                            crumb: () => <Link to="/countries">countries</Link>,
-                        },
-                        children: [
-                            {
-                                index: true,
-                                lazy: async () => {
-                                    let courses = await import('./screens/countries')
-                                    return { Component: courses.default };
-                                },
-                            },
-                            {
-                                path: "add",
-                                lazy: async () => {
-                                    let courses = await import('./screens/countries/Add')
-                                    return { Component: courses.default };
-                                },
-                                handle: {
-                                    crumb: () => (
-                                        <Link to="/add">new_country</Link>
-                                    ),
-                                },
-                            },
-                            {
-                                path: ":id/edit",
-                                lazy: async () => {
-                                    let courses = await import('./screens/countries/Edit')
-                                    return { Component: courses.default };
-                                },
-                                handle: {
-                                    crumb: () => (
-                                        <Link to="/:id/edit">edit_country</Link>
-                                    ),
-                                },
-                            },
-                        ],
-                    },
-                    {
                         path: 'profile',
                         index: true,
                         lazy: async () => {
@@ -265,6 +226,45 @@ const useRouter = () => {
                                 handle: {
                                     crumb: () => (
                                         <Link to="/:id/edit">edit_service</Link>
+                                    ),
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        path: "sliders",
+                        handle: {
+                            crumb: () => <Link to="/sliders">sliders</Link>,
+                        },
+                        children: [
+                            {
+                                index: true,
+                                lazy: async () => {
+                                    let service = await import('./screens/sliders')
+                                    return { Component: service.default };
+                                },
+                            },
+                            {
+                                path: "add",
+                                lazy: async () => {
+                                    let service = await import('./screens/sliders/add')
+                                    return { Component: service.default };
+                                },
+                                handle: {
+                                    crumb: () => (
+                                        <Link to="/add">new_slider</Link>
+                                    ),
+                                },
+                            },
+                            {
+                                path: ":id/edit",
+                                lazy: async () => {
+                                    let service = await import('./screens/sliders/edit')
+                                    return { Component: service.default };
+                                },
+                                handle: {
+                                    crumb: () => (
+                                        <Link to="/:id/edit">edit_slider</Link>
                                     ),
                                 },
                             },

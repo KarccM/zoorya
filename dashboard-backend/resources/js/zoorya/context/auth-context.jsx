@@ -41,7 +41,7 @@ function useAuth() {
     return context;
 }
 
-function useClient(ContentType) {
+function useClient() {
     const { lang } = useLang();
     const headers = { "x-locale": lang };
     return React.useCallback((endpoint, config) => axios(endpoint, { ...config, headers }), [lang]);

@@ -388,5 +388,15 @@
   "createdAt":"Created At",
   "expander":"Expander",
   "toggle_all":"Toggle All",
-  "table_action":"Table Actions"
+  "table_action":"Table Actions",
+  "create_service":"Create Service",
+  "sliders":"Sliders",
+  "Unauthenticated":"Unauthenticated",
+  "file-too-large":"uploaded file is more than acceptable size",
+  "tap_delete":"Tap For Delete",
+  "order":"Order",
+  "slider":"Slider",
+  "create_slider":"Create slider",
+  "new_slider":"New slider",
+  "edit_slider":"Edit Slider"
 }

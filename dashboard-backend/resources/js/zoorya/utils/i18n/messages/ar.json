@@ -388,5 +388,15 @@
   "createdAt":"تاريخ الإنشاء",
   "expander":"توسيع",
   "toggle_all":"تحديد الكل",
-  "table_action":"الإجرائيات على الجدول"
+  "table_action":"الإجرائيات على الجدول",
+  "create_service":"إنشاء خدمة",
+  "sliders":"الاطارات",
+  "Unauthenticated":"يجب عليك تسجيل الدخول",
+  "file-too-large":"حجم الملف اكبر من الحد المسموح",
+  "tap_delete":"أنقر للحذف",
+  "order":"الترتيب",
+  "slider":"الاطار",
+  "create_slider":"انشئ إطار",
+  "new_slider":"إطار جديد",
+  "edit_slider":"تعديل الإطار"
 }

@@ -29,6 +29,12 @@ const navConfig = [
         icon: getIcon('material-symbols:home-repair-service-rounded'),
         roles: 'Service.view',
     },
+    {
+        title: 'sliders',
+        path: "/sliders",
+        icon: getIcon('solar:slider-minimalistic-horizontal-line-duotone'),
+        roles: 'Service.view',
+    },
 ];
 
 export default navConfig;

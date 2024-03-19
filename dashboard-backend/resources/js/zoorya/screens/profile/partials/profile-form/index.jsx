@@ -112,7 +112,6 @@ export default function ProfileForm() {
 
   useEffect(() => {
     if (!user) return
-    console.log('user :>> ', user);
     reset({ ...user.data });
   }, [user]);
 

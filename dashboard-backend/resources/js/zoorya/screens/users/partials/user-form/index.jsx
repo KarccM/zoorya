@@ -6,7 +6,7 @@ import { useClient } from "@/context/auth-context";
 import { successWithCustomMessage } from "@/utils/notifications";
 import { getRouteWithLang } from "@/utils/routesHelpers";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Grid, Paper, Stack } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery, useQueryClient } from "react-query";
