@@ -1,16 +1,23 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import Carousel from 'react-native-snap-carousel'
 import CarouselCardItem, { SLIDER_WIDTH, ITEM_WIDTH } from './caroItem'
-import data from './data'
+import { useQuery } from '@tanstack/react-query';
+import client from '../../../utils/client';
 
 const CarouselCards = () => {
-  const isCarousel = React.useRef(null)
+  const { data: services, isLoading } = useQuery({ queryKey: ['services'], queryFn: () => client.get(`${process.env.EXPO_PUBLIC_BACKEND_URL}/services`) });
+
+  const isCarousel = React.useRef(null);
+
+  if (isLoading) return <View style={{ margin: 10 }}>
+    <ActivityIndicator animating={isLoading} />
+  </View>
 
   return (
     <View>
       <Carousel
-        data={data}
+        data={services.data}
         ref={isCarousel}
         useScrollView={true}
         layoutCardOffset={9}

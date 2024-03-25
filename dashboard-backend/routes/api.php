@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\MobileControllers\MobileServiceController;
+use App\Http\Controllers\MobileControllers\MobileSliderController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserController;
@@ -46,6 +47,7 @@ Route::group(['middleware' => ['web']], function () {
     
     Route::prefix('mobile')->group(function(){
         Route::get('/services', [MobileServiceController::class, 'index']);
+        Route::get('/sliders', [MobileSliderController::class, 'index']);
         Route::get('/ping', fn() => "pong mobile");
 
     });
