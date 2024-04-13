@@ -270,6 +270,57 @@ const useRouter = () => {
                             },
                         ],
                     },
+                    {
+                        path: "categories",
+                        handle: {
+                            crumb: () => <Link to="/categories">categories</Link>,
+                        },
+                        children: [
+                            {
+                                index: true,
+                                lazy: async () => {
+                                    let category = await import('./screens/categories')
+                                    return { Component: category.default };
+                                },
+                            },
+                            {
+                                path: "add",
+                                lazy: async () => {
+                                    let category = await import('./screens/categories/add')
+                                    return { Component: category.default };
+                                },
+                                handle: {
+                                    crumb: () => (
+                                        <Link to="/add">new_category</Link>
+                                    ),
+                                },
+                            },
+                            {
+                                path: ":parentId/add",
+                                lazy: async () => {
+                                    let category = await import('./screens/categories/add')
+                                    return { Component: category.default };
+                                },
+                                handle: {
+                                    crumb: () => (
+                                        <Link to="/:parentId/add">add_category</Link>
+                                    ),
+                                },
+                            },
+                            {
+                                path: ":id/edit",
+                                lazy: async () => {
+                                    let category = await import('./screens/categories/edit')
+                                    return { Component: category.default };
+                                },
+                                handle: {
+                                    crumb: () => (
+                                        <Link to="/:id/edit">edit_category</Link>
+                                    ),
+                                },
+                            },
+                        ],
+                    },
                 ],
             },
         ]
