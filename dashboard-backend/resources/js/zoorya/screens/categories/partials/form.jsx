@@ -34,7 +34,7 @@ export default function Form() {
 
   const { control, handleSubmit, reset, formState: { errors, isDirty } } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: { titleAr: '', titleEn: '', descriptionAr: '', descriptionEn: '' },
+    defaultValues: { name: "" },
   });
 
   React.useEffect(() => {

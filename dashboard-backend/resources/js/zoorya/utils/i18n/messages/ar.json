@@ -398,5 +398,9 @@
   "slider":"الاطار",
   "create_slider":"انشئ إطار",
   "new_slider":"إطار جديد",
-  "edit_slider":"تعديل الإطار"
+  "edit_slider":"تعديل الإطار",
+  "color":"اللون",
+  "weight":"الوزن",
+  "height":"الارتفاع",
+  "enter_your_dog":"أدخل معلومات كلبك"
 }

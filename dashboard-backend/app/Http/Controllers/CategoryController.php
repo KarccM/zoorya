@@ -19,7 +19,7 @@ class CategoryController extends Controller
     public function index(CategoryFilter $cf)
     {
         $this->authorize('Category.index');
-        $categories = Category::with(['parent'])->useFilter($cf)->get();
+        $categories = Category::with(['parent', 'animals'])->useFilter($cf)->get();
         $categories = Category::buildTree(CategoryResource::collection($categories));
         return CategoryResource::collection($categories);
     }

@@ -319,6 +319,54 @@ const useRouter = () => {
                                     ),
                                 },
                             },
+                            {
+                                path: ":categoryId/dog/add",
+                                lazy: async () => {
+                                    let dog = await import('./screens/categories/partials/dog-form')
+                                    return { Component: dog.default };
+                                },
+                                handle: {
+                                    crumb: () => (
+                                        <Link to="/:id/edit">add_dog</Link>
+                                    ),
+                                },
+                            },
+                            {
+                                path: ":categoryId/dog/:id/edit",
+                                lazy: async () => {
+                                    let dog = await import('./screens/categories/partials/dog-form')
+                                    return { Component: dog.default };
+                                },
+                                handle: {
+                                    crumb: () => (
+                                        <Link to="/:id/edit">edit_dog</Link>
+                                    ),
+                                },
+                            },
+                            {
+                                path: ":categoryId/cat/add",
+                                lazy: async () => {
+                                    let cat = await import('./screens/categories/partials/cat-form')
+                                    return { Component: cat.default };
+                                },
+                                handle: {
+                                    crumb: () => (
+                                        <Link to="/:id/edit">add_cat</Link>
+                                    ),
+                                },
+                            },
+                            {
+                                path: ":categoryId/cat/:id/edit",
+                                lazy: async () => {
+                                    let cat = await import('./screens/categories/partials/cat-form')
+                                    return { Component: cat.default };
+                                },
+                                handle: {
+                                    crumb: () => (
+                                        <Link to="/:id/edit">edit_cat</Link>
+                                    ),
+                                },
+                            },
                         ],
                     },
                 ],

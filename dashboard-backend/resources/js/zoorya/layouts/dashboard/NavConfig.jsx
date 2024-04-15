@@ -5,12 +5,6 @@ import * as React from "react";
 const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
 
 const navConfig = [
-    // {
-    //     title: 'blogs',
-    //     path: '/blogs',
-    //     icon: getIcon('iconoir:page'),
-    //     roles: "Blog.view"
-    // },
     {
         title: "users",
         path: "/users",
@@ -33,8 +27,14 @@ const navConfig = [
         title: 'sliders',
         path: "/sliders",
         icon: getIcon('solar:slider-minimalistic-horizontal-line-duotone'),
-        roles: 'Service.view',
+        roles: 'Slider.view',
     },
+    {
+        title: 'categories',
+        path: "/categories",
+        icon: getIcon('bxs:category'),
+        roles: 'Category.view',
+    }
 ];
 
 export default navConfig;

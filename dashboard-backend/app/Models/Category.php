@@ -69,4 +69,9 @@ class Category extends Model
             self::findParent($category, $node->children);
         });
     }
+
+    public function animals()
+    {
+        return $this->hasMany(Categorizable::class);
+    }
 }

@@ -20,6 +20,7 @@ class CategoryResource extends JsonResource
             'children'      => $this->children,
             'parnetId'      => $this->parent_id,
             'parnet'        => new CategoryResource($this->whenLoaded('parent')),
+            'animals'       => AnimalResource::collection($this->whenLoaded('animals')),
         ];
     }
 }

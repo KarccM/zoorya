@@ -398,5 +398,8 @@
   "slider":"Slider",
   "create_slider":"Create slider",
   "new_slider":"New slider",
-  "edit_slider":"Edit Slider"
+  "edit_slider":"Edit Slider",
+  "color":"Color",
+  "weight":"Weight",
+  "height":"Height"
 }

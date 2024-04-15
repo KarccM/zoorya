@@ -39,6 +39,20 @@ export const tableColumns: ExpandableCell[] = [
                                 </IconButton>
                             </Tooltip>
                         </Authorize>
+                        {/* <Authorize permission="Animal.create"> */}
+                            <Tooltip title={<FormattedMessage  id="add dog"/>}>
+                                <IconButton color="default" onClick={() => navigate(`${row.id}/dog/add`)}>
+                                    <Iconify icon="mdi-dog"/>
+                                </IconButton>
+                            </Tooltip>
+                        {/* </Authorize> */}
+                        {/* <Authorize permission="Animal.create"> */}
+                            <Tooltip title={<FormattedMessage  id="add cat"/>}>
+                                <IconButton color="warning" onClick={() => navigate(`${row.id}/cat/add`)}>
+                                    <Iconify icon="mdi-cat"/>
+                                </IconButton>
+                            </Tooltip>
+                        {/* </Authorize> */}
                         <Authorize permission={config.update.permission}>
                             <Tooltip title={<FormattedMessage  id="edit category"/>}>
                                 <IconButton color="info" onClick={() => navigate(`${row.id}/edit`)}>

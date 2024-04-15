@@ -8,6 +8,8 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CatController;
+use App\Http\Controllers\DogController;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +43,16 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/sliders', [SliderController::class, 'store']);
         Route::post('/sliders/{slider}', [SliderController::class, 'update']);
         Route::delete('/sliders/{slider}', [SliderController::class, 'destroy']);
+        
+        Route::get('/dogs/{dog}', [DogController::class, 'show']);
+        Route::post('/dogs', [DogController::class, 'store']);
+        Route::post('/dogs/{dog}', [DogController::class, 'update']);
+        Route::delete('/dogs/{dog}', [DogController::class, 'destroy']);
+        
+        Route::get('/cats/{cat}', [CatController::class, 'show']);
+        Route::post('/cats', [CatController::class, 'store']);
+        Route::post('/cats/{cat}', [CatController::class, 'update']);
+        Route::delete('/cats/{cat}', [CatController::class, 'destroy']);
 
         Route::get('/categories', [CategoryController::class, 'index']);
         Route::post('/categories', [CategoryController::class, 'store']);
