@@ -23,6 +23,8 @@ export default function Faqs() {
 
   let fetchDataOptions = readQueryParams();
 
+  useQuery(['animals'], () => client('/animals'), { keepPreviousData: true });
+
   const { data: faqs, isLoading } = useQuery(
     [config.queryClient.list, fetchDataOptions],
     () => client(`${config.url}?${queryString.stringify(fetchDataOptions)}`),
@@ -40,7 +42,7 @@ export default function Faqs() {
             </Button>
           </Authorize>
         </Stack>
-        <TreeTable column={columns} data={faqs?.data} isLoading={isLoading}/>
+        <TreeTable column={columns} data={faqs?.data} isLoading={isLoading} />
       </Container>
     </Page>
   );

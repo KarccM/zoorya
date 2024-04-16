@@ -12,10 +12,10 @@ export const tableColumns: ExpandableCell[] = [
     {
         header: "name",
         render: ({ row, expanded, setExpanded, lvl }) => (
-            <Stack flexDirection="row" rowGap={1} alignItems="center" sx={{pl: `${lvl}rem`}}>
-                <IconButton disabled={!row.children?.length} color="primary" type="button" onClick={() => setExpanded(prev => !prev)}>
+            <Stack flexDirection="row" rowGap={1} alignItems="center" sx={{ pl: `${lvl}rem` }}>
+                <IconButton disabled={!row.children?.length && !row.animals?.length} color="primary" type="button" onClick={() => setExpanded(prev => !prev)}>
                     <ExpandedIcon
-                        sx={{ width: 20, height: 20,  }}
+                        sx={{ width: 20, height: 20, }}
                         expanded={expanded}
                     />
                 </IconButton>
@@ -33,37 +33,37 @@ export const tableColumns: ExpandableCell[] = [
                 <>
                     <Stack flexDirection="row" rowGap={1}>
                         <Authorize permission={config.create.permission}>
-                            <Tooltip title={<FormattedMessage  id="add category"/>}>
+                            <Tooltip title={<FormattedMessage id="add category" />}>
                                 <IconButton color="success" onClick={() => navigate(`${row.id}/add`)}>
-                                    <Iconify icon="tabler:plus"/>
+                                    <Iconify icon="tabler:plus" />
                                 </IconButton>
                             </Tooltip>
                         </Authorize>
                         {/* <Authorize permission="Animal.create"> */}
-                            <Tooltip title={<FormattedMessage  id="add dog"/>}>
-                                <IconButton color="default" onClick={() => navigate(`${row.id}/dog/add`)}>
-                                    <Iconify icon="mdi-dog"/>
-                                </IconButton>
-                            </Tooltip>
+                        <Tooltip title={<FormattedMessage id="add dog" />}>
+                            <IconButton color="default" onClick={() => navigate(`${row.id}/dog/add`)}>
+                                <Iconify icon="mdi-dog" />
+                            </IconButton>
+                        </Tooltip>
                         {/* </Authorize> */}
                         {/* <Authorize permission="Animal.create"> */}
-                            <Tooltip title={<FormattedMessage  id="add cat"/>}>
-                                <IconButton color="warning" onClick={() => navigate(`${row.id}/cat/add`)}>
-                                    <Iconify icon="mdi-cat"/>
-                                </IconButton>
-                            </Tooltip>
+                        <Tooltip title={<FormattedMessage id="add cat" />}>
+                            <IconButton color="warning" onClick={() => navigate(`${row.id}/cat/add`)}>
+                                <Iconify icon="mdi-cat" />
+                            </IconButton>
+                        </Tooltip>
                         {/* </Authorize> */}
                         <Authorize permission={config.update.permission}>
-                            <Tooltip title={<FormattedMessage  id="edit category"/>}>
+                            <Tooltip title={<FormattedMessage id="edit category" />}>
                                 <IconButton color="info" onClick={() => navigate(`${row.id}/edit`)}>
-                                    <Iconify icon="tabler:edit"/>
+                                    <Iconify icon="tabler:edit" />
                                 </IconButton>
                             </Tooltip>
                         </Authorize>
                         <Authorize permission={config.delete.permission}>
-                            <Tooltip title={<FormattedMessage  id="delete"/>}>
+                            <Tooltip title={<FormattedMessage id="delete" />}>
                                 <IconButton color="error">
-                                    <Iconify icon="ic:round-delete"/>
+                                    <Iconify icon="ic:round-delete" />
                                 </IconButton>
                             </Tooltip>
                         </Authorize>

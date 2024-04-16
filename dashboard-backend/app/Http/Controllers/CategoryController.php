@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Rules\ValidLevel;
 use App\Rules\ValidSibling;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -53,7 +54,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $this->authorize("Category.delete");
-        \DB::transaction(function () use($category) {
+        DB::transaction(function () use($category) {
             $category->delete();
         });
     }

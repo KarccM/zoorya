@@ -1,11 +1,11 @@
 import React from 'react'
-import {Table, TableContainer, TableHead, TableRow, TableCell, Paper} from '@mui/material';
-import {ExpandableCell} from './expandable-cell';
+import { Table, TableContainer, TableHead, TableRow, TableCell, Paper } from '@mui/material';
+import { ExpandableCell } from './expandable-cell';
 import ExpandableRow from './expandable-row';
 import { ModalSpinner } from '../lib';
 import { FormattedMessage } from 'react-intl';
 
-const TreeTable = ({data, column, isLoading}: {data:any [], column:ExpandableCell [], isLoading:boolean}) => {
+const TreeTable = ({ data, column, isLoading }: { data: any[], column: ExpandableCell[], isLoading: boolean }) => {
   if (isLoading) return <ModalSpinner />
 
   return (
@@ -20,7 +20,7 @@ const TreeTable = ({data, column, isLoading}: {data:any [], column:ExpandableCel
             ))}
           </TableRow>
         </TableHead>
-        {data.map(row => <ExpandableRow row={row} key={row.id} column={column}/>)}
+        {data.map(row => <ExpandableRow row={row} key={row.id} column={column} lvl={0} childrenKey="animals" />)}
       </Table>
     </TableContainer>
   );

@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\DogController;
 use App\Http\Resources\UserResource;
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::get('/roles', fn () => ['data' => ['user', 'admin']]);
         
+        Route::get('/animals', [AnimalController::class, 'index']);
     });
     
     Route::prefix('mobile')->group(function(){
