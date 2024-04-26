@@ -11,20 +11,22 @@ use Illuminate\Support\Facades\DB;
 
 class DogController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:sanctum');
+    // }
 
     public function store(Request $request)
     {
         $this->authorize('Animal.create');
         $this->validateRequest($request);
-        $dogImage = $request->file("image");
+        $dogImage = $request->file('image');
         $path = StorageHandler::store($dogImage, "dogs");
         DB::transaction(function() use($path, $request){
             $dog = Dog::create([
                 "name"          => $request->name,
+                "age"           => $request->age,
+                "gender"        => $request->gender,
                 "color"         => $request->color,
                 "weight"        => $request->weight,
                 "height"        => $request->height,
@@ -41,8 +43,8 @@ class DogController extends Controller
 
     public function show(Dog $dog)
     {
-        $this->authorize('Animal.index');
-        return new DogResource($dog);
+        // $this->authorize('Animal.index');
+        return new DogResource($dog->loadMissing(['category']));
     }
 
     public function update(Request $request, Dog $dog)
@@ -53,6 +55,8 @@ class DogController extends Controller
         $path = StorageHandler::store($dogImage, "dogs");
         $dog->update([
             "name"          => $request->name,
+            "age"           => $request->age,
+            "gender"        => $request->gender,
             "color"         => $request->color,
             "weight"        => $request->weight,
             "height"        => $request->height,
@@ -74,6 +78,8 @@ class DogController extends Controller
             'weight'        => 'required',
             'height'        => 'required',
             'categoryId'    => 'required',
+            "age"           => 'required',
+            "gender"        => 'required',
         ]);
     }
 }

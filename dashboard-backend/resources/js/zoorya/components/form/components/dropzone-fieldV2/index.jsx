@@ -18,10 +18,10 @@ const StyledBox = styled(Box)(({ theme, error }) => ({
   justifyContent: 'center',
   borderRadius: theme.shape.borderRadius,
   border: `2px dashed ${error ? theme.palette.error.main : theme.palette.grey[300]}`,
-  '&:hover' : {
+  '&:hover': {
     border: `2px dashed ${theme.palette.primary.main}`,
     cursor: 'pointer',
-    backgroundColor: theme.palette.grey[100],
+    backgroundColor: theme.palette.background.default,
     transition: 'all 0.350s ease-in-out'
   }
 }))

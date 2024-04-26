@@ -61,12 +61,22 @@ Route::group(['middleware' => ['web']], function () {
         Route::put('/categories/{category}', [CategoryController::class, 'update']);
         Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
-        Route::get('/roles', fn () => ['data' => ['user', 'admin']]);
-        
         Route::get('/animals', [AnimalController::class, 'index']);
+        Route::get('/animals/{animal}', [AnimalController::class, 'show']);
+
+        Route::get('/roles', fn () => ['data' => ['user', 'admin']]);
+
+        Route::get('/genders', fn() => ['data' => [
+            ['name' => 'male', 'value' => 'male'],
+            ['name' => 'female', 'value' => 'female'],
+        ]]);
+        
     });
     
     Route::prefix('mobile')->group(function(){
+        Route::get('/categories', [CategoryController::class, 'index']);
+        Route::get('/animals', [AnimalController::class, 'index']);
+        Route::get('/dogs/{dog}', [DogController::class, 'show']);
         Route::get('/services', [MobileServiceController::class, 'index']);
         Route::get('/sliders', [MobileSliderController::class, 'index']);
         Route::get('/ping', fn() => "pong mobile");

@@ -23,8 +23,6 @@ export default function Faqs() {
 
   let fetchDataOptions = readQueryParams();
 
-  useQuery(['animals'], () => client('/animals'), { keepPreviousData: true });
-
   const { data: faqs, isLoading } = useQuery(
     [config.queryClient.list, fetchDataOptions],
     () => client(`${config.url}?${queryString.stringify(fetchDataOptions)}`),

@@ -320,7 +320,7 @@ const useRouter = () => {
                                 },
                             },
                             {
-                                path: ":categoryId/dog/add",
+                                path: ":categoryId/dogs/add",
                                 lazy: async () => {
                                     let dog = await import('./screens/categories/partials/dog-form')
                                     return { Component: dog.default };
@@ -332,7 +332,7 @@ const useRouter = () => {
                                 },
                             },
                             {
-                                path: ":categoryId/dog/:id/edit",
+                                path: ":categoryId/dogs/:id/edit",
                                 lazy: async () => {
                                     let dog = await import('./screens/categories/partials/dog-form')
                                     return { Component: dog.default };
@@ -344,7 +344,7 @@ const useRouter = () => {
                                 },
                             },
                             {
-                                path: ":categoryId/cat/add",
+                                path: ":categoryId/cats/add",
                                 lazy: async () => {
                                     let cat = await import('./screens/categories/partials/cat-form')
                                     return { Component: cat.default };
@@ -356,7 +356,7 @@ const useRouter = () => {
                                 },
                             },
                             {
-                                path: ":categoryId/cat/:id/edit",
+                                path: ":categoryId/cats/:id/edit",
                                 lazy: async () => {
                                     let cat = await import('./screens/categories/partials/cat-form')
                                     return { Component: cat.default };

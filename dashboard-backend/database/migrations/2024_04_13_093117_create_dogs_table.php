@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('color');
             $table->string('path');
+            $table->string('gender');
+            $table->unsignedInteger('age');
             $table->unsignedInteger('weight');
             $table->unsignedInteger('height');
             $table->timestamps();

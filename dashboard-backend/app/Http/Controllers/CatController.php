@@ -11,20 +11,22 @@ use Illuminate\Support\Facades\DB;
 
 class CatController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:sanctum');
+    // }
 
     public function store(Request $request)
     {
         $this->authorize('Animal.create');
         $this->validateRequest($request);
-        $catImage = $request->file("image");
+        $catImage = $request->file('image');
         $path = StorageHandler::store($catImage, "Cats");
         DB::transaction(function() use($path, $request){
             $cat = Cat::create([
                 "name"          => $request->name,
+                "age"           => $request->age,
+                "gender"        => $request->gender,
                 "color"         => $request->color,
                 "weight"        => $request->weight,
                 "height"        => $request->height,
@@ -34,15 +36,15 @@ class CatController extends Controller
                 'name' => $request->name,
                 'category_id' => $request->categoryId,
                 'categorizable_id' => $cat->id,
-                'categorizable_type' => 'App\Models\Dog',
+                'categorizable_type' => 'App\Models\Cat',
             ]);
         });
     }
 
     public function show(Cat $cat)
     {
-        $this->authorize('Animal.index');
-        return new CatResource($cat);
+        // $this->authorize('Animal.index');
+        return new CatResource($cat->loadMissing(['category']));
     }
 
     public function update(Request $request, Cat $cat)
@@ -53,10 +55,11 @@ class CatController extends Controller
         $path = StorageHandler::store($catImage, "Cats");
         $cat->update([
             "name"          => $request->name,
+            "age"           => $request->age,
+            "gender"        => $request->gender,
             "color"         => $request->color,
             "weight"        => $request->weight,
             "height"        => $request->height,
-            "category_id"   => $request->categoryId,
             "path"          => $catImage ? $path : $cat->path,
         ]);
     }
@@ -75,6 +78,8 @@ class CatController extends Controller
             'weight'        => 'required',
             'height'        => 'required',
             'categoryId'    => 'required',
+            "age"           => 'required',
+            "gender"        => 'required',
         ]);
     }
 }

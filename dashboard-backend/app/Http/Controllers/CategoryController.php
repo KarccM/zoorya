@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:sanctum');
+    // }
     
     public function index(CategoryFilter $cf)
     {
-        $this->authorize('Category.index');
+        // $this->authorize('Category.index');
         $categories = Category::with(['parent', 'animals'])->useFilter($cf)->get();
         $categories = Category::buildTree(CategoryResource::collection($categories));
         return CategoryResource::collection($categories);

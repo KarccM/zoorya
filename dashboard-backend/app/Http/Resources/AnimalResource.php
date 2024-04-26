@@ -13,7 +13,9 @@ class AnimalResource extends JsonResource
         return [
             "id"            => $this->id,
             "name"          => $this->name,
-            "type"          => $this->categorizable_type,
+            "type"          => explode('\\', $this->categorizable_type)[2],
+            "categoryId"    => $this->category_id,
+            "category"      => new CategoryResource($this->whenLoaded('category')),
             "resource"      => AnimalResourcesFactory::generateResource($this->categorizable_type, $this->categorizable),
         ];
     }
