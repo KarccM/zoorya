@@ -15,6 +15,7 @@ import Breadcrumbs from '@/components/breadcrumbs';
 import usePageMetadata from '../../hooks/usePageMetadata';
 import Authorize from '@/components/Authorize';
 import TreeTable from '../../components/tree-table';
+import axios from 'axios'
 
 export default function Faqs() {
   const { title } = usePageMetadata();

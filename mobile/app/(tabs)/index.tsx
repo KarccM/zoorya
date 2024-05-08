@@ -2,28 +2,22 @@ import React from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import ServicesCarousel from '../../views/home/services/ServicesCarousel';
 import SlidersCarousel from '../../views/home/sliders/ServicesCarousel';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default () => {
   return (
-    <View style={{ padding: 10 }}>
+    <SafeAreaView className='bg-zoorya-white h-full'>
       <ScrollView>
-        <View style={{ marginBottom: 10 }}>
-          <Text style={styles.servicesTitle}>Our Services</Text>
-          <ServicesCarousel />
-        </View>
-        <View>
-          <SlidersCarousel />
+        <View className="p-2">
+          <View className="m-1" >
+            <Text className="text-3xl font-bold text-center">Our Services</Text>
+            <ServicesCarousel />
+          </View>
+          <View>
+            <SlidersCarousel />
+          </View>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  servicesTitle: {
-    fontSize: 24,
-    fontWeight: '700',
-    textAlign: 'center',
-    marginBottom: 10,
-  }
-})

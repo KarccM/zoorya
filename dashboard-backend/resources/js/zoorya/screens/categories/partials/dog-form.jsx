@@ -59,7 +59,7 @@ export default () => {
     const { mutate, isError, isLoading, error } = useMutation(
         (data) =>
             client(id ? `dogs/${id}` : 'dogs', {
-                method: id ? "PUT" : "POST",
+                method: "POST",
                 data: data,
             }),
         {

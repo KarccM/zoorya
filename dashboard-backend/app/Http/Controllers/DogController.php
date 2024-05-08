@@ -8,6 +8,7 @@ use App\Helpers\StorageHandler;
 use App\Http\Resources\DogResource;
 use App\Models\Categorizable;
 use Illuminate\Support\Facades\DB;
+use App\Models\Animal;
 
 class DogController extends Controller
 {
@@ -44,11 +45,14 @@ class DogController extends Controller
     public function show(Dog $dog)
     {
         // $this->authorize('Animal.index');
-        return new DogResource($dog->loadMissing(['category']));
+        $dog->loadMissing(['category']);
+        return new DogResource($dog);
     }
 
-    public function update(Request $request, Dog $dog)
+    public function update(Request $request, Animal $dog)
     {
+        $te = Dog::find($dog->categorizable->id);
+        dd($dog->categorizable);
         $this->authorize('Animal.update');
         $this->validateRequest($request);
         $dogImage = $request->file("image");

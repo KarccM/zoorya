@@ -14,7 +14,7 @@ class AnimalController extends Controller
 
     public function index()
     {
-        $this->authorize('Animal.index');
+        // $this->authorize('Animal.index');
         $animals = Animal::with(['categorizable', 'category'])->get();
         return AnimalResource::collection($animals);
     }

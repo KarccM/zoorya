@@ -10,9 +10,11 @@ const CarouselCards = () => {
 
   const isCarousel = React.useRef(null);
 
-  if (isLoading) return <View style={{ margin: 10 }}>
-    <ActivityIndicator animating={isLoading} />
-  </View>
+  if (isLoading) return (
+    <View style={{ margin: 10 }}>
+      <ActivityIndicator animating={isLoading} />
+    </View>
+  );
 
   return (
     <View>

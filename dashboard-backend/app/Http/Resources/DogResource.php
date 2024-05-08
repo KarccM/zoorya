@@ -20,7 +20,9 @@ class DogResource extends JsonResource
             "weight"        => $this->weight,
             "updatedAt"     => $this->updated_at,
             "createdAt"     => $this->created_at,
-            "category"      => new CategoryResource($this->whenLoaded('category')),
+            // "category"      => new CategoryResource($this->whenLoaded('category')),
+            
+
         ];
     }
 }
